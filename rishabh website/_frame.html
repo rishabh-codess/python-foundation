@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>frame probe</title></head>
+<body style="margin:0;background:#111">
+<iframe id="f" src="_probe.html" style="width:390px;height:844px;border:0;display:block"></iframe>
+<script>
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    try {
+      var f = document.getElementById('f');
+      var out = [];
+      [320, 360, 390, 414, 504].forEach(function (w) {
+        f.style.width = w + 'px';
+        var d = f.contentDocument, iw = f.contentWindow;
+        var q = function (s) { return d.querySelector(s); };
+        var r = function (el) { return el ? Math.round(el.getBoundingClientRect().width) : 'n/a'; };
+        var ga = q('.gate__actions');
+        var hint = q('.gate__hint');
+        var btns = Array.prototype.map.call(ga.children, function (b) { return Math.round(b.getBoundingClientRect().width); }).join('+');
+        var btnTops = Array.prototype.map.call(ga.children, function (b) { return Math.round(b.getBoundingClientRect().top); }).join('+');
+        out.push(w + ': vp=' + iw.innerWidth + ' inner=' + r(q('.gate__inner')) +
+          ' actions=' + r(ga) + ' btns=' + btns + ' tops=' + btnTops +
+          ' hintScroll=' + hint.scrollWidth + '/' + Math.round(hint.getBoundingClientRect().width) +
+          ' title=' + r(q('.gate__title')) +
+          ' eyebrowScroll=' + q('.gate .eyebrow').scrollWidth +
+          ' pageScrollW=' + d.documentElement.scrollWidth);
+      });
+      parent.document.title = out.join(' || ');
+    } catch (e) { parent.document.title = 'ERR ' + e.message; }
+  }, 2000);
+});
+</script>
+</body>
+</html>

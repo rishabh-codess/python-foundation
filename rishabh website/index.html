@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rishabh is getting older. Unfortunately. 🎂</title>
+<meta name="description" content="An official-ish dinner invitation from Rishabh Kumar, plus a gallery you are legally obligated to post from. Return gift mandatory. Terms apply.">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rishabh is getting older. Unfortunately. 🎂">
+<meta property="og:description" content="You're invited to dinner. You eat, I pay, you bring a return gift. Seems fair to me.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%82%3C/text%3E%3C/svg%3E">
+<script>document.documentElement.classList.remove('no-js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══ ambient layers ══ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+<a class="skip-link" href="#hero">Skip to the part with the food</a>
+
+<noscript>
+  <p class="noscript" style="margin:1rem">
+    This site runs on a little JavaScript — the entrance screen, the photo gallery
+    and the RSVP form all need it. Turn it on and refresh. It&rsquo;s worth it, promise.
+  </p>
+</noscript>
+
+<!-- ══ 0 · GATE ══ -->
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gateTitle" hidden>
+  <div class="gate__glow" aria-hidden="true"></div>
+  <div class="gate__inner">
+    <p class="eyebrow eyebrow--center">Rishabh Kumar &middot; <span data-cfg="event.dateShort">12 December</span></p>
+
+    <h1 class="gate__title" id="gateTitle">
+      <span class="gate__wait">WAIT&hellip; <span class="emoji">👀</span></span>
+      <span class="gate__q" hidden>Are you actually invited to Rishabh&rsquo;s birthday?</span>
+    </h1>
+
+    <!-- step 1 -->
+    <div class="gate__step" id="gateStep1">
+      <div class="gate__actions">
+        <button class="btn btn--primary btn--lg" type="button" id="gateYes">YES, OBVIOUSLY <span aria-hidden="true">→</span></button>
+        <button class="btn btn--ghost btn--lg" type="button" id="gateUnsure">I&rsquo;M NOT SURE 🤨</button>
+      </div>
+      <p class="gate__fine">No bouncers. No guest list. Just vibes and mild judgement.</p>
+    </div>
+
+    <!-- step 2 : the unsure script -->
+    <div class="gate__step gate__step--script" id="gateStep2" hidden>
+      <div class="gate__lines" id="gateLines" aria-live="polite"></div>
+      <button class="btn btn--primary btn--lg gate__enter" type="button" id="gateEnter" hidden>ENTER <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+  <p class="gate__hint">psst &mdash; there&rsquo;s a 🎁 hidden somewhere on this page</p>
+</div>
+
+<main id="main">
+<!-- ══ 1 · HERO ══ -->
+<section class="hero" id="hero">
+  <div class="hero__media">
+    <img class="hero__img" id="heroImg" src="images/hero.jpg"
+         alt="Rishabh, looking suspiciously good for someone who is officially getting older"
+         data-fallback="Rishabh" data-fill="1" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <canvas class="hero__particles" id="particles" aria-hidden="true"></canvas>
+
+  <div class="hero__content">
+    <p class="eyebrow">Officially unofficial invitation &middot; <span data-cfg="event.dateShort">12 December</span></p>
+    <h2 class="hero__title">
+      <span class="hero__line">RISHABH IS<br>GETTING OLDER.</span>
+      <span class="hero__line hero__line--accent">UNFORTUNATELY. <span class="emoji">🎂</span></span>
+    </h2>
+    <p class="hero__sub">And since you&rsquo;ve somehow survived knowing me, you&rsquo;ve earned an invitation to dinner.</p>
+    <div class="hero__actions">
+      <a class="btn btn--primary btn--lg" href="#invitation">VIEW INVITATION <span aria-hidden="true">↓</span></a>
+      <button class="btn btn--ghost btn--lg" type="button" data-scroll="#rsvp">JUST LET ME RSVP</button>
+    </div>
+    <p class="hero__note" id="heroNote">Age to be confirmed. He&rsquo;s being dramatic about it.</p>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ══ 2 · INTRO ══ -->
+<section class="section intro" id="intro">
+  <div class="wrap">
+    <p class="eyebrow reveal">Exhibit A</p>
+    <h2 class="display reveal" data-d="60">ANOTHER YEAR.</h2>
+    <p class="lede reveal" data-d="120">
+      Another year of questionable decisions, unnecessary confidence, gym selfies,
+      and somehow surviving. Statistically impressive. Emotionally confusing.
+    </p>
+    <p class="beat reveal" data-d="180">But this time&hellip;</p>
+    <h2 class="display display--xl reveal" data-d="120">WE&rsquo;RE CELEBRATING.</h2>
+    <p class="lede lede--small reveal" data-d="200">
+      Dinner, proper food, no splitting the bill. All you have to do is show up
+      and pretend you&rsquo;re happy for me. Loudly.
+    </p>
+  </div>
+</section>
+
+<!-- ══ 3 · OFFICIAL INVITATION ══ -->
+<section class="section" id="invitation">
+  <div class="wrap">
+    <div class="card card--invite reveal">
+      <div class="card__shine" aria-hidden="true"></div>
+      <p class="eyebrow">The actual invitation</p>
+      <h2 class="display display--lg">YOU&rsquo;RE INVITED. <span class="emoji">🥂</span></h2>
+      <p class="lede">To celebrate another year of Rishabh being Rishabh.</p>
+
+      <dl class="details">
+        <div class="details__item reveal" data-d="60">
+          <dt>DATE</dt>
+          <dd data-cfg="event.dateDisplay">Saturday, 12 December</dd>
+        </div>
+        <div class="details__item reveal" data-d="120">
+          <dt>TIME</dt>
+          <dd data-cfg="event.timeDisplay">8:00 PM onwards</dd>
+        </div>
+        <div class="details__item details__item--wide reveal" data-d="180">
+          <dt>LOCATION</dt>
+          <dd data-cfg="event.venue">The Rooftop, [Restaurant Name], [City]</dd>
+        </div>
+        <div class="details__item details__item--wide reveal" data-d="240">
+          <dt>DRESS CODE</dt>
+          <dd><em data-cfg="event.dressCode">&ldquo;Come looking decent. I have standards.&rdquo;</em></dd>
+        </div>
+      </dl>
+
+      <div class="invite__beats">
+        <p class="reveal"><strong>Dinner is on me.</strong></p>
+        <p class="reveal invite__catch" data-d="220">But there&rsquo;s a catch. 👀</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ══ 4 · RETURN GIFT CLAUSE ══ -->
+<section class="section terms" id="terms">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow reveal">Clause 1.1 &mdash; the only clause</p>
+    <h2 class="terms__lines">
+      <span class="terms__line reveal">YOU EAT.</span>
+      <span class="terms__line reveal" data-d="120">I PAY.</span>
+      <span class="terms__line terms__line--accent reveal" data-d="240">YOU BRING<br>A RETURN GIFT.</span>
+    </h2>
+    <p class="beat reveal" data-d="300">Seems fair to me.</p>
+
+    <div class="legal reveal" data-d="120">
+      <p class="legal__fine">
+        By reading this far you accept that &ldquo;I forgot&rdquo; is not a legally
+        recognised gift, that a WhatsApp forward does not count as a present, and that
+        Rishabh will bring this up at every future dinner until the end of time.
+      </p>
+      <label class="check" for="termsCheck">
+        <input type="checkbox" id="termsCheck">
+        <span class="check__box" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg>
+        </span>
+        <span class="check__label">I acknowledge that Rishabh is, in fact, getting older &mdash; and that this is somehow now my problem too.</span>
+      </label>
+
+      <button class="btn btn--primary btn--lg btn--full" type="button" id="acceptTerms">
+        I ACCEPT THESE TERMS <span aria-hidden="true">→</span>
+      </button>
+      <p class="terms__nudge" id="termsNudge" role="status"></p>
+
+      <div class="verdict" id="termsVerdict" hidden>
+        <div class="verdict__tick" aria-hidden="true">
+          <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="26" cy="26" r="23"/><path d="M15 27.5 22.5 35 38 18"/></svg>
+        </div>
+        <p class="verdict__title">Excellent decision.</p>
+        <p class="verdict__sub">Your contribution to Rishabh&rsquo;s happiness has been recorded. Somewhere. Legally binding, probably.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ══ 5 · RSVP ══ -->
+<section class="section rsvp" id="rsvp">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow reveal">Now the admin</p>
+    <h2 class="display display--lg reveal">OKAY, IMPORTANT STUFF.</h2>
+    <p class="lede reveal" data-d="80">Let&rsquo;s confirm you&rsquo;re actually coming. Takes 20 seconds. I counted.</p>
+
+    <div class="card card--form reveal" id="rsvpCard">
+      <form class="form" id="rsvpForm" novalidate>
+        <div class="field">
+          <label class="field__label" for="rsvpName">NAME</label>
+          <input class="input" type="text" id="rsvpName" name="name" placeholder="What&rsquo;s your name?" autocomplete="name" required>
+          <p class="field__error" id="errName" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="rsvpRelation">RELATIONSHIP WITH RISHABH</label>
+          <div class="select">
+            <select class="input input--select" id="rsvpRelation" name="relationship" required>
+              <option value="" selected disabled>Pick the closest one (no wrong answers)</option>
+              <option>Best Friend</option>
+              <option>Friend</option>
+              <option>Cousin</option>
+              <option>Brother</option>
+              <option>Sister</option>
+              <option>College Friend</option>
+              <option>Work Friend</option>
+              <option>Neighbour</option>
+              <option>Other</option>
+            </select>
+            <span class="select__arrow" aria-hidden="true">▾</span>
+          </div>
+          <p class="field__error" id="errRelation" role="alert"></p>
+        </div>
+
+        <fieldset class="field field--radio">
+          <legend class="field__label">RSVP STATUS</legend>
+          <div class="choices" id="attendanceChoices" role="radiogroup" aria-label="RSVP status">
+            <label class="choice" data-value="yes">
+              <input type="radio" name="attendance" value="yes" required>
+              <span class="choice__inner">
+                <span class="choice__icon" aria-hidden="true">🎉</span>
+                <span class="choice__text">YES, I&rsquo;LL BE THERE</span>
+                <span class="choice__sub">Correct answer.</span>
+              </span>
+            </label>
+            <label class="choice" data-value="maybe">
+              <input type="radio" name="attendance" value="maybe">
+              <span class="choice__inner">
+                <span class="choice__icon" aria-hidden="true">👀</span>
+                <span class="choice__text">LET ME CHECK</span>
+                <span class="choice__sub">I&rsquo;ll wait. Unhappily.</span>
+              </span>
+            </label>
+            <label class="choice" data-value="no">
+              <input type="radio" name="attendance" value="no">
+              <span class="choice__inner">
+                <span class="choice__icon" aria-hidden="true">😭</span>
+                <span class="choice__text">CAN&rsquo;T MAKE IT</span>
+                <span class="choice__sub">Bold choice. Noted.</span>
+              </span>
+            </label>
+          </div>
+          <p class="field__error" id="errAttendance" role="alert"></p>
+        </fieldset>
+
+        <div class="field" id="giftField">
+          <p class="field__lead">Now the important question&hellip;</p>
+          <label class="field__label" for="rsvpGift" id="giftLabel">WHAT ARE YOU PLANNING TO BRING ME?</label>
+          <input class="input" type="text" id="rsvpGift" name="returnGift" placeholder="Be honest. I can already tell when you&rsquo;re lying." list="giftIdeas">
+          <datalist id="giftIdeas">
+            <option>Watch</option><option>Perfume</option><option>Shoes</option>
+            <option>Cash 😂</option><option>Surprise</option><option>Nothing 😭</option>
+          </datalist>
+          <p class="field__hint" id="giftHint">Popular choices below, if you&rsquo;re feeling unoriginal.</p>
+          <p class="field__error" id="errGift" role="alert"></p>
+        </div>
+
+        <button class="btn btn--primary btn--lg btn--full" type="submit" id="rsvpSubmit">SEND IT <span aria-hidden="true">→</span></button>
+        <p class="form__note">No spam, no mailing list. It goes to me and nowhere else.</p>
+      </form>
+    </div>
+
+    <div class="card card--success" id="rsvpSuccess" hidden aria-live="polite">
+      <p class="eyebrow">Receipt</p>
+      <h3 class="success__title">YOU&rsquo;RE ON THE LIST. 🎉</h3>
+      <dl class="receipt">
+        <div><dt>Name</dt><dd id="outName">—</dd></div>
+        <div><dt>Status</dt><dd id="outStatus">—</dd></div>
+        <div><dt>Return Gift</dt><dd id="outGift">—</dd></div>
+      </dl>
+      <div class="success__beats">
+        <p>See you at dinner.</p>
+        <p>Don&rsquo;t be late.</p>
+        <p class="success__accent">I have cake to eat.</p>
+      </div>
+      <div class="success__actions">
+        <button class="btn btn--primary" type="button" id="addCalendar">ADD TO CALENDAR 📅</button>
+        <button class="btn btn--ghost" type="button" id="shareInvite">SHARE INVITATION</button>
+      </div>
+      <p class="success__alt"><button class="linklike" type="button" id="editRsvp">Wrong details? Change them.</button></p>
+    </div>
+  </div>
+</section>
+<!-- ══ 6 · GALLERY ══ -->
+<section class="section gallery" id="gallery">
+  <div class="wrap">
+    <p class="eyebrow reveal">Section 9, subsection 1</p>
+    <h2 class="display display--lg reveal">YOU HAVE ONE JOB.</h2>
+    <p class="lede reveal" data-d="80">It&rsquo;s my birthday.</p>
+    <p class="lede reveal" data-d="140">Which means you are legally obligated to post me on your story. 😌</p>
+    <p class="lede lede--small reveal" data-d="200">
+      Download. Post. Tag me. That&rsquo;s the entire job description. I&rsquo;ve even
+      named the files nicely so your Instagram doesn&rsquo;t look like a crime scene.
+    </p>
+
+    <div class="filters reveal" id="filters" role="group" aria-label="Filter photos by category"></div>
+    <p class="gallery__count" id="galleryCount" role="status"></p>
+
+    <div class="grid" id="galleryGrid"></div>
+
+    <p class="gallery__foot reveal">Missing a picture of me? Unlikely. But if it exists, it&rsquo;s going up here eventually.</p>
+  </div>
+</section>
+
+<!-- ══ 7 · WHICH RISHABH ══ -->
+<section class="section which" id="which">
+  <div class="wrap">
+    <p class="eyebrow reveal">Choose your fighter</p>
+    <h2 class="display display--lg reveal">WHICH RISHABH ARE YOU POSTING?</h2>
+    <p class="lede reveal" data-d="80">Pick a vibe. I&rsquo;ll show you the evidence. Then you post it.</p>
+
+    <div class="personas" id="personas">
+      <button class="persona reveal" type="button" data-filter="best-look" data-d="60">
+        <span class="persona__icon" aria-hidden="true">😎</span>
+        <span class="persona__label">THE HANDSOME ONE</span>
+        <span class="persona__hint">Peak lighting. Peak angles. Peak me.</span>
+        <span class="persona__go">Show me <span aria-hidden="true">→</span></span>
+      </button>
+      <button class="persona reveal" type="button" data-filter="gym" data-d="120">
+        <span class="persona__icon" aria-hidden="true">💪</span>
+        <span class="persona__label">THE GYM BRO</span>
+        <span class="persona__hint">Yes, I go. No, you can&rsquo;t tell.</span>
+        <span class="persona__go">Show me <span aria-hidden="true">→</span></span>
+      </button>
+      <button class="persona reveal" type="button" data-filter="chaotic" data-d="180">
+        <span class="persona__icon" aria-hidden="true">😂</span>
+        <span class="persona__label">THE CHAOTIC ONE</span>
+        <span class="persona__hint">No context available. No context needed.</span>
+        <span class="persona__go">Show me <span aria-hidden="true">→</span></span>
+      </button>
+      <button class="persona reveal" type="button" data-filter="throwback" data-d="240">
+        <span class="persona__icon" aria-hidden="true">🧒</span>
+        <span class="persona__label">THE CHILDHOOD EVIDENCE</span>
+        <span class="persona__hint">Exhibit B through F. Wear a helmet.</span>
+        <span class="persona__go">Show me <span aria-hidden="true">→</span></span>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- ══ 8 · CAPTION GENERATOR ══ -->
+<section class="section captions" id="captions">
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow reveal">Caption rescue service</p>
+    <h2 class="display display--lg reveal">DON&rsquo;T KNOW WHAT TO WRITE?</h2>
+    <p class="lede reveal" data-d="80">
+      Copy one of mine. I wrote them, so they&rsquo;re obviously good. Add your own
+      emoji if you&rsquo;re feeling creative.
+    </p>
+
+    <ul class="captions__list" id="captionList"></ul>
+    <p class="captions__note reveal">
+      Bonus points if you tag me. Negative points if you crop my face out.
+    </p>
+  </div>
+</section>
+
+<!-- ══ 9 · FINAL ══ -->
+<section class="section final" id="final">
+  <div class="final__glow" aria-hidden="true"></div>
+  <div class="wrap wrap--narrow">
+    <p class="eyebrow reveal eyebrow--center">Last slide</p>
+    <h2 class="display display--xl reveal" data-d="60">SEE YOU AT DINNER. 🥂</h2>
+    <p class="lede reveal" data-d="140">
+      Thanks for being part of another year of my life. Genuinely. Please don&rsquo;t
+      make it weird.
+    </p>
+    <p class="lede reveal" data-d="200">Now don&rsquo;t forget the return gift.</p>
+    <p class="final__lol reveal" data-d="240">😂</p>
+    <button class="btn btn--primary btn--xl reveal" type="button" data-d="300" data-scroll="#rsvp" id="finalCta">I&rsquo;M COMING 🎉</button>
+    <p class="final__hint reveal" data-d="340">
+      RSVP properly though. I&rsquo;m booking a table based on this
+      <button class="linklike egg" type="button" id="easterEggBtn" aria-label="A tiny hidden present. You can click me." title="🎁">🎁</button>
+    </p>
+  </div>
+</section>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>Made for Rishabh&rsquo;s birthday.</p>
+    <p>&copy; <span id="year">2026</span> Rishabh Kumar</p>
+  </div>
+</footer>
+
+<!-- ══ floating music control ══ -->
+<div class="music" id="musicWrap" hidden>
+  <button class="music__btn" type="button" id="musicBtn" aria-pressed="false" aria-label="Toggle background music">
+    <span class="music__icon" id="musicIcon" aria-hidden="true">🎵</span>
+    <span class="music__label" id="musicLabel">Music ON 🔊</span>
+  </button>
+  <audio id="music" loop preload="none"></audio>
+</div>
+
+<!-- ══ easter egg ══ -->
+<div class="modal" id="eggModal" role="dialog" aria-modal="true" aria-labelledby="eggTitle" hidden>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__panel">
+    <button class="modal__x" type="button" data-close aria-label="Close">✕</button>
+    <p class="eyebrow">You absolute time-waster</p>
+    <h3 class="modal__title" id="eggTitle">YOU FOUND THE SECRET. 👀</h3>
+    <p class="modal__sub">Since you clearly have too much free time&hellip;</p>
+    <figure class="egg__figure">
+      <img src="images/easter-egg.jpg"
+           alt="A deeply unflattering photograph of Rishabh that was never meant to see daylight"
+           data-fallback="Classified" data-ar="4 / 5" loading="lazy" decoding="async">
+      <figcaption>Exhibit Z. Do not screenshot. Do not zoom. Do not enjoy this.</figcaption>
+    </figure>
+    <p class="modal__sub modal__sub--strong">Please don&rsquo;t tell anyone this existed.</p>
+  </div>
+</div>
+<!-- ══ full-screen photo viewer ══ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <div class="lightbox__backdrop" data-lb-close></div>
+  <div class="lightbox__bar">
+    <span class="lightbox__meta" id="lbMeta"></span>
+    <div class="lightbox__tools">
+      <button class="iconbtn" type="button" id="lbDownload">DOWNLOAD</button>
+      <button class="iconbtn" type="button" id="lbShare">SHARE</button>
+      <button class="iconbtn iconbtn--x" type="button" data-lb-close aria-label="Close viewer">✕</button>
+    </div>
+  </div>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" id="lbPrev" aria-label="Previous photo">‹</button>
+  <figure class="lightbox__stage">
+    <img id="lbImg" src="" alt="">
+    <figcaption class="lightbox__cap" id="lbCap"></figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" type="button" id="lbNext" aria-label="Next photo">›</button>
+</div>
+
+<!-- ══ toast ══ -->
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<!-- ══ confetti ══ -->
+<canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
+
